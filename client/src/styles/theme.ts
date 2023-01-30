@@ -1,8 +1,18 @@
 import { DefaultTheme } from "styled-components";
 
-export const whiteTheme: DefaultTheme = {};
+export const whiteTheme: DefaultTheme = {
+  mainBgColor: "white",
+  mainTextColor: "black",
+  lineColor: "grey",
+  cardBgColor: "#c780fa",
+};
 
-export const darkTheme: DefaultTheme = {};
+export const darkTheme: DefaultTheme = {
+  mainBgColor: "black",
+  mainTextColor: "white",
+  lineColor: "white",
+  cardBgColor: "",
+};
 
 const customMediaQuery = (maxWidth: number): string =>
   `@media screen and (max-width: ${maxWidth}px)`;
