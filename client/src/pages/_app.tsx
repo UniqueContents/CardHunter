@@ -17,10 +17,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <Provider store={store}>
           <Head>
             <title>CardHunter</title>
-            <link
-              href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap"
-              rel="stylesheet"
-            />
           </Head>
           <header>
             <Header />

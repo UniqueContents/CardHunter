@@ -5,6 +5,7 @@ declare module "styled-components" {
     mainBgColor: string;
     subBgColor: string;
     mainTextColor: string;
+    subTextColor: string;
     lineColor: string;
     cardBgColor: string;
     headerTop: string;

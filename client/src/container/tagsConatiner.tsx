@@ -12,9 +12,20 @@ export default function TagsContainer() {
 
   return (
     <TagsWrapper>
+      {/* Props 넘기는 방식은 추후에 변경 예정 */}
       <Tags
         name="카드사"
-        options={optionsFilter(["국민은행", "신한은행", "기업은행"], tags)}
+        options={optionsFilter(
+          [
+            "국민은행",
+            "신한은행",
+            "기업은행",
+            "제주은행",
+            "농협",
+            "카카오뱅크",
+          ],
+          tags
+        )}
       />
       <Tags
         name="혜택"
@@ -31,7 +42,7 @@ export default function TagsContainer() {
 
 const TagsWrapper = styled.div`
   background-color: ${(props) => props.theme.tagContainerBgColor};
-  padding: 1rem 1rem;
+  padding: 1rem;
   border-radius: 1rem;
   font-size: 1.5rem;
   ${(props) => props.theme.boxShadow}

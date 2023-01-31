@@ -5,6 +5,10 @@ const store = configureStore({
   reducer: {
     tags: tagsReducer.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export type AppState = ReturnType<typeof store.getState>;

@@ -57,7 +57,8 @@ const StyleTags = styled.ul`
   display: flex;
   align-items: center;
   font-weight: 600;
-
+  min-height: 3rem;
+  flex-wrap: wrap;
   li + li {
     margin-left: 0.5rem;
   }

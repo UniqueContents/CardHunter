@@ -17,8 +17,8 @@ const SelectedTag = ({ name }: SelectedTagProps) => {
 const Tag = styled.div`
   font-weight: 600;
   background-color: ${(props) => props.theme.cardBgColor};
+  text-align: center;
   padding: 0.5rem 1rem;
-
   border-radius: 1rem;
   position: relative;
   cursor: pointer;
@@ -53,8 +53,11 @@ export default function SelectedTags({ tags }: SelectedTagsProps) {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   font-size: 1.5rem;
   font-weight: 600;
+  overflow: hidden;
+  min-height: 3rem;
   div + div {
     margin-left: 1rem;
   }

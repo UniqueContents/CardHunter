@@ -1,3 +1,4 @@
+import CardListCotainer from "@/container/cardListContainer";
 import TagsContainer from "@/container/tagsConatiner";
 import { media } from "@/styles/theme";
 import styled from "styled-components";
@@ -8,6 +9,7 @@ export default function Home() {
       <FliterWrapper>
         <Title>조건식</Title>
         <TagsContainer />
+        <CardListCotainer />
       </FliterWrapper>
     </Wrapper>
   );
@@ -19,7 +21,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
   min-height: 100vh;
   background: linear-gradient(
     to top,
@@ -31,16 +32,22 @@ const Wrapper = styled.div`
 const FliterWrapper = styled.div`
   margin-top: 5rem;
   width: 40%;
+  ${media.custom(3000)} {
+    min-width: 100rem;
+  }
   ${media.desktop} {
-    width: 70%;
+    width: 80%;
+    min-width: 0;
   }
 
   ${media.tablet} {
-    width: 80%;
+    width: 90%;
+    min-width: 0;
   }
 
   ${media.mobile} {
     width: 100%;
+    min-width: 340px;
   }
 `;
 
