@@ -9,6 +9,9 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-size: 67.5%;
   }
+  a {
+    text-decoration: none;
+  }
 `;
 
 export default GlobalStyle;

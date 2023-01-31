@@ -1,17 +1,29 @@
 import { DefaultTheme } from "styled-components";
 
 export const whiteTheme: DefaultTheme = {
-  mainBgColor: "white",
+  mainBgColor: "#d3756b",
+  subBgColor: "#F0997D",
   mainTextColor: "black",
   lineColor: "grey",
   cardBgColor: "#c780fa",
+  headerTop: "white",
+  headerNTop: "white",
+  tagContainerBgColor: "white",
+  fontFamily: "font-family: 'Song Myung', serif;",
+  boxShadow: "box-shadow: 0rem 0.1rem 0.3rem black;",
 };
 
 export const darkTheme: DefaultTheme = {
   mainBgColor: "black",
+  subBgColor: "",
   mainTextColor: "white",
   lineColor: "white",
   cardBgColor: "",
+  headerTop: "",
+  headerNTop: "",
+  tagContainerBgColor: "",
+  fontFamily: "font-family: 'Song Myung', serif;",
+  boxShadow: "",
 };
 
 const customMediaQuery = (maxWidth: number): string =>

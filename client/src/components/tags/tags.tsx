@@ -16,6 +16,7 @@ const Tag = ({ name }: TagProps) => {
 };
 
 const StyleTag = styled.li`
+  margin: 0.15rem 0;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   cursor: pointer;
@@ -31,24 +32,32 @@ interface TagsProps {
 
 function Tags({ name, options }: TagsProps) {
   return (
-    <StyleTags>
+    <Wrapper>
       <span>{name}</span>
-      {options.map((name) => (
-        <Tag key={name} name={name} />
-      ))}
-    </StyleTags>
+      <StyleTags>
+        {options.map((name) => (
+          <Tag key={name} name={name} />
+        ))}
+      </StyleTags>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  span::after {
+    content: "|";
+    margin: 0 1rem;
+  }
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid ${(props) => props.theme.lineColor};
+`;
 
 const StyleTags = styled.ul`
   display: flex;
   align-items: center;
   font-weight: 600;
-  font-size: 1.5rem;
-  span::after {
-    content: "|";
-    margin: 0 1rem;
-  }
+
   li + li {
     margin-left: 0.5rem;
   }

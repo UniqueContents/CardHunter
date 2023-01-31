@@ -30,13 +30,10 @@ export default function TagsContainer() {
 }
 
 const TagsWrapper = styled.div`
-  background-color: ${(props) => props.theme.mainBgColor};
-  min-width: 70rem;
+  background-color: ${(props) => props.theme.tagContainerBgColor};
   padding: 1rem 1rem;
   border-radius: 1rem;
-  ul + ul {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid ${(props) => props.theme.lineColor};
-  }
+  font-size: 1.5rem;
+  ${(props) => props.theme.boxShadow}
+  ${(props) => props.theme.fontFamily}
 `;

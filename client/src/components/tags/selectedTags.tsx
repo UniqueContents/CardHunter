@@ -18,6 +18,7 @@ const Tag = styled.div`
   font-weight: 600;
   background-color: ${(props) => props.theme.cardBgColor};
   padding: 0.5rem 1rem;
+
   border-radius: 1rem;
   position: relative;
   cursor: pointer;
@@ -53,9 +54,6 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   font-size: 1.5rem;
-  border-top: 1px solid ${(props) => props.theme.lineColor};
-  margin: 1rem 0;
-  padding-top: 1rem;
   font-weight: 600;
   div + div {
     margin-left: 1rem;

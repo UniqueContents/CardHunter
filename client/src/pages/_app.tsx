@@ -1,7 +1,9 @@
+import Header from "@/components/header/header";
 import store from "@/module";
 import GlobalStyle from "@/styles/globals";
 import { darkTheme, whiteTheme } from "@/styles/theme";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import { useState } from "react";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
@@ -13,8 +15,21 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <ThemeProvider theme={isDark ? darkTheme : whiteTheme}>
         <Provider store={store}>
-          <GlobalStyle />
-          <Component {...pageProps} />
+          <Head>
+            <title>CardHunter</title>
+            <link
+              href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap"
+              rel="stylesheet"
+            />
+          </Head>
+          <header>
+            <Header />
+          </header>
+          <main>
+            <GlobalStyle />
+            <Component {...pageProps} />
+          </main>
+          <footer></footer>
         </Provider>
       </ThemeProvider>
     </>
