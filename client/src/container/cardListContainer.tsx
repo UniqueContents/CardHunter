@@ -1,4 +1,5 @@
 import CardInfo from "@/components/card/cardInfo";
+import Spinner from "@/components/loading/spinner";
 import { useAppDispatch, useAppSelector } from "@/hook/redux";
 import { getCardInfo } from "@/module/tags";
 import { useEffect } from "react";
@@ -18,23 +19,28 @@ export default function CardListCotainer() {
   return (
     <Wrapper>
       {/* Props 넘기는 방식은 추후에 변경예정 */}
-      {[0, 1, 2, 3, 4, 5, 6, 7].map((item) => (
-        <CardInfo
-          key={item}
-          src={"/images/card.png"}
-          benefits={["혜택1", "혜택2", "혜택3"]}
-          description={description}
-          title={"카드이름"}
-        />
-      ))}
+      {cardInfo.loading === "pending" && <Spinner />}
+
+      {cardInfo.loading === "reject" &&
+        [0, 1, 2, 3, 4, 5, 6, 7].map((item) => (
+          <CardInfo
+            key={item}
+            src={"/images/card.png"}
+            benefits={["혜택1", "혜택2", "혜택3"]}
+            description={description}
+            title={"카드이름"}
+          />
+        ))}
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.tagContainerBgColor};
+  position: relative;
   border-radius: 1rem;
   padding: 1rem;
+  min-height: 25rem;
   margin-top: 3rem;
   ${(props) => props.theme.boxShadow}
   ${(props) => props.theme.fontFamily}

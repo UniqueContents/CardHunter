@@ -54,11 +54,9 @@ const tagsReducer = createSlice({
       })
       .addCase(getCardInfo.rejected, (state, { payload }) => {
         state.cardInfo.loading = "reject";
-        console.log(payload);
         if (payload instanceof AxiosError) {
           state.cardInfo.payload = payload;
         } else {
-          console.log(payload);
         }
       });
   },

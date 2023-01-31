@@ -13,5 +13,6 @@ declare module "styled-components" {
     tagContainerBgColor: string;
     fontFamily: string;
     boxShadow: string;
+    lodaingBgColor: string;
   }
 }
