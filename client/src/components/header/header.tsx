@@ -1,6 +1,6 @@
 import { media } from "@/styles/theme";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 export default function Header() {

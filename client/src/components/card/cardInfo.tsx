@@ -43,7 +43,7 @@ const Wrapper = styled.div`
     left: 0;
     content: "";
     width: 100%;
-    border-bottom: 1px solid ${(props) => props.theme.lineColor};
+    border-bottom: 2px solid ${(props) => props.theme.lineColor};
   }
   &:hover {
     background-color: ${(props) => props.theme.subBgColor};

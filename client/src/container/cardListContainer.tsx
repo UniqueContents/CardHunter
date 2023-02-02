@@ -19,18 +19,19 @@ export default function CardListCotainer() {
   return (
     <Wrapper>
       {/* Props 넘기는 방식은 추후에 변경예정 */}
-      {cardInfo.loading === "pending" && <Spinner />}
 
-      {cardInfo.loading === "reject" &&
-        [0, 1, 2, 3, 4, 5, 6, 7].map((item) => (
-          <CardInfo
-            key={item}
-            src={"/images/card.png"}
-            benefits={["혜택1", "혜택2", "혜택3"]}
-            description={description}
-            title={"카드이름"}
-          />
-        ))}
+      {/* 현재 단계에서는 별로 필요없는 Spinner */}
+      {/* {cardInfo.loading === "pending" && <Spinner />} */}
+
+      {[0, 1, 2, 3, 4, 5, 6, 7].map((item) => (
+        <CardInfo
+          key={item}
+          src={"/images/card.png"}
+          benefits={["혜택1", "혜택2", "혜택3"]}
+          description={description}
+          title={"카드이름"}
+        />
+      ))}
     </Wrapper>
   );
 }
