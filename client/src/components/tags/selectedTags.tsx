@@ -56,7 +56,6 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   font-size: 1.5rem;
   font-weight: 600;
-  overflow: hidden;
   min-height: 3rem;
   div + div {
     margin-left: 1rem;

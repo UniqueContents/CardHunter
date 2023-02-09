@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import { duplication } from "./util";
-import axios from "axios";
+import { baseAxios } from "@/api";
 export interface ITags {
   tags: string[];
   cardInfo: {
@@ -22,10 +22,10 @@ export const getCardInfo = createAsyncThunk(
   "tags/cardInfo",
   async (tags: string[], { rejectWithValue }) => {
     try {
-      const res = await axios("someURL");
+      const res = await baseAxios("card");
       return res.data;
-    } catch (err) {
-      return rejectWithValue(err);
+    } catch (e) {
+      return rejectWithValue(e);
     }
   }
 );
@@ -50,6 +50,7 @@ const tagsReducer = createSlice({
       })
       .addCase(getCardInfo.fulfilled, (state, { payload }) => {
         state.cardInfo.loading = "success";
+        console.log(payload);
         state.cardInfo.payload = payload;
       })
       .addCase(getCardInfo.rejected, (state, { payload }) => {

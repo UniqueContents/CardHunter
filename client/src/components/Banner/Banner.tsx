@@ -3,6 +3,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import won50000 from "/public/images/50000won.png";
 import won10000 from "/public/images/10000won.png";
+import { media } from "@/styles/theme";
 
 export default function Banner() {
   const creatMoney = () => {
@@ -10,7 +11,6 @@ export default function Banner() {
     return money.map((_, idx) => {
       const delay = Math.random() * 8;
       const rand = Math.random() * 100;
-
       return (
         <Money
           key={idx}
@@ -24,15 +24,6 @@ export default function Banner() {
 
   return <Wrapper>{creatMoney()}</Wrapper>;
 }
-
-const Wrapper = styled.div`
-  position: relative;
-  width: 90%;
-  height: 60vh;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-`;
 
 interface MoneyProps {
   delay: number;
@@ -66,4 +57,18 @@ const Money = styled.div<MoneyProps>`
   animation: ${fall} 8s linear infinite;
   animation-delay: ${(props) => props.delay}s;
   z-index: 1;
+`;
+
+const Wrapper = styled.div`
+  position: relative;
+  width: 90%;
+  height: 60vh;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  ${media.mobile} {
+    ${Money}:nth-child(3n) {
+      visibility: hidden;
+    }
+  }
 `;

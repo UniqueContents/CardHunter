@@ -1,6 +1,6 @@
 import { media } from "@/styles/theme";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
 
 export default function Header() {
@@ -28,7 +28,9 @@ export default function Header() {
         <HeaderCol>
           <Logo href={"/"}>Unique Contents</Logo>
         </HeaderCol>
-        <HeaderCol></HeaderCol>
+        <HeaderCol>
+          <nav></nav>
+        </HeaderCol>
       </HeaderBlock>
     </Wrapper>
   );

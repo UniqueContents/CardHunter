@@ -1,11 +1,14 @@
 import { useAppDispatch, useAppSelector } from "@/hook/redux";
-import { changeState } from "@/module/auth";
+import { adminLogin, changeState } from "@/module/auth";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 export default function LoginForm() {
+  const router = useRouter();
   const dispatch = useAppDispatch();
-  const { userId, userPwd } = useAppSelector((state) => state.login);
+  const { userId, userPwd, auth } = useAppSelector((state) => state.login);
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {
     const {
       currentTarget: { value, name: type },
@@ -19,8 +22,30 @@ export default function LoginForm() {
   };
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    dispatch(adminLogin({ email: userId, password: userPwd }));
   };
-  return (
+  const [login, setLogin] = useState(false);
+
+  useEffect(() => {
+    const preToken = localStorage.getItem("access_token");
+    if (preToken) {
+      // 서버에 유효 토큰인지 확인 후
+      // 유효 토큰이면 AdminPage로 보내기
+      // 그렇지 않으면 로그인 계속 및 로컬스토리지에서 토큰 삭제
+      router.replace("/AdminPage");
+    } else {
+      setLogin((prev) => true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (auth.token) {
+      localStorage.setItem("access_token", auth.token);
+      router.push("/AdminPage");
+    }
+  }, [auth.token]);
+
+  return login ? (
     <Wrapper>
       <Logo href={"/"}>Unique Contents</Logo>
       <StyledLoginForm onSubmit={onSubmit}>
@@ -38,10 +63,13 @@ export default function LoginForm() {
           name="userPwd"
           onChange={onChange}
         />
+        {auth.loading === "Unauthenticated" ? (
+          <ErrorMsg>아이디 또는 비밀번호가 잘못되었습니다.</ErrorMsg>
+        ) : null}
         <StyledBtn type="submit">로그인</StyledBtn>
       </StyledLoginForm>
     </Wrapper>
-  );
+  ) : null;
 }
 
 const Wrapper = styled.div`
@@ -102,4 +130,14 @@ const StyledBtn = styled.button`
   background-color: ${(props) => props.theme.subBgColor};
   border-radius: 1rem;
   cursor: pointer;
+`;
+
+const ErrorMsg = styled.p`
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 1.5rem 0;
+  background-color: #ff000099;
+  color: white;
+  padding: 1rem 0;
+  border-radius: 0.5rem;
 `;

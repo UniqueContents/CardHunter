@@ -1,4 +1,4 @@
-import LoginForm from "@/components/auth/loginForm";
+import LoginForm from "@/container/auth/loginForm";
 import styled from "styled-components";
 
 export default function login() {
