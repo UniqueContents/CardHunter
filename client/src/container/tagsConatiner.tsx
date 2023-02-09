@@ -1,3 +1,4 @@
+import Search from "@/components/tags/search";
 import SelectedTags from "@/components/tags/selectedTags";
 import Tags from "@/components/tags/tags";
 import { useAppSelector } from "@/hook/redux";
@@ -9,10 +10,10 @@ const optionsFilter = (arr: string[], tags: string[]): string[] => {
 
 export default function TagsContainer() {
   const { tags } = useAppSelector((state) => state.tags);
-
   return (
     <TagsWrapper>
       {/* Props 넘기는 방식은 추후에 변경 예정 */}
+      <Search />
       <Tags
         name="카드사"
         options={optionsFilter(
