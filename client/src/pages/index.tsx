@@ -1,7 +1,6 @@
 import CardListCotainer from "@/container/cardListContainer";
 import TagsContainer from "@/container/tagsConatiner";
 import { media } from "@/styles/theme";
-import { StaticImageData } from "next/image";
 import styled from "styled-components";
 import Banner from "@/components/Banner/Banner";
 
@@ -45,45 +44,6 @@ const About = styled.div`
   justify-content: center;
   ${media.mobile} {
     min-height: 60rem;
-  }
-`;
-
-interface BannerProps {
-  desktop: StaticImageData;
-  portable: StaticImageData;
-}
-
-const StylesBanner = styled.div<BannerProps>`
-  position: absolute;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  z-index: 5;
-  max-width: 240rem;
-  ${media.custom(3000)} {
-    top: 10%;
-    right: 18%;
-    width: 50rem;
-    height: 50rem;
-    background-image: url(${(props) => props.desktop.src});
-  }
-  ${media.desktop} {
-    right: 10%;
-    top: 10%;
-    width: 40rem;
-    height: 40rem;
-    background-image: url(${(props) => props.desktop.src});
-  }
-  ${media.tablet} {
-    background-image: url(${(props) => props.portable.src});
-    width: 45rem;
-    height: 75rem;
-    left: 13%;
-  }
-  ${media.mobile} {
-    background-image: url(${(props) => props.portable.src});
-    width: 40rem;
-    height: 56rem;
-    left: 10%;
   }
 `;
 

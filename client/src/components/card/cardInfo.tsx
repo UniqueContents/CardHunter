@@ -6,6 +6,7 @@ interface CardInfoProps {
   title: string;
   description: string;
   benefits: string[];
+  mode?: "admin";
 }
 
 export default function CardInfo({
@@ -13,6 +14,7 @@ export default function CardInfo({
   title,
   description,
   benefits,
+  mode,
 }: CardInfoProps) {
   return (
     <Wrapper>
@@ -26,9 +28,42 @@ export default function CardInfo({
           ))}
         </BenefitConatiner>
       </Col>
+      {mode === "admin" ? (
+        <Buttons>
+          <StyledButton>삭제</StyledButton>
+          <StyledButton>수정</StyledButton>
+        </Buttons>
+      ) : null}
     </Wrapper>
   );
 }
+
+const Buttons = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 8rem;
+  button + button {
+    margin-top: 1rem;
+  }
+  ${media.mobile} {
+    margin-left: 6rem;
+  }
+`;
+
+const StyledButton = styled.button`
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: ${(props) => props.theme.mainBgColor};
+
+  ${(props) => props.theme.fontFamily}
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+`;
 
 const Wrapper = styled.div`
   display: flex;

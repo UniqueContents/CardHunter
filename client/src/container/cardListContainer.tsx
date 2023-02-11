@@ -8,7 +8,11 @@ import styled from "styled-components";
 const description =
   "카드설명카드설명카드설명카드설명카드설명카드설명카드설명카드설명카드설명카드설명카드설명카드설명카드설명카드설명";
 
-export default function CardListCotainer() {
+interface CardListContainerProps {
+  mode?: "admin";
+}
+
+export default function CardListContainer({ mode }: CardListContainerProps) {
   const { tags, cardInfo } = useAppSelector((state) => state.tags);
   const dispatch = useAppDispatch();
 
@@ -30,6 +34,7 @@ export default function CardListCotainer() {
           benefits={["혜택1", "혜택2", "혜택3"]}
           description={description}
           title={"카드이름"}
+          mode={mode}
         />
       ))}
     </Wrapper>
