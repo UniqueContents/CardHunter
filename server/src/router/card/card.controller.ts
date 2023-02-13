@@ -13,7 +13,8 @@ export class CardController {
   @ApiOperation({ summary: 'card api', description: '카드 리스트 조회' })
   async getCardList() {
     try {
-      return this.cardService.getCardList();
+      const result = await this.cardService.getCardList();
+      return { statusCode: 200, message: ['success'], result: result };
     } catch (e) {
       console.log(e);
     }
@@ -24,7 +25,8 @@ export class CardController {
   @ApiOperation({ summary: 'card api', description: '카드 리스트 조회' })
   async createCard(@Body() cardDto: CardDto) {
     try {
-      return this.cardService.createCardInfo(cardDto);
+      const result = await this.cardService.createCardInfo(cardDto);  
+      return { statusCode: 200, message: ['success'], result: result };
     } catch (e) {
       console.log(e);
     }
